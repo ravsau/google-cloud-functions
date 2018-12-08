@@ -1,5 +1,5 @@
 from wand.image import Image
-
+import os
 
 def hello_gcs(event, context):
   
@@ -22,7 +22,7 @@ def hello_gcs(event, context):
         img.save(filename='/tmp/image.jpg')
     
     	
-    bucket = storage_client.get_bucket('my-new-bucket111-sau')
+    bucket = storage_client.get_bucket(os.environ['DESTINATION_BUCKET'])
 
     destination_blob_name= eventName
         
